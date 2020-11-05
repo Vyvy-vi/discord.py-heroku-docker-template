@@ -5,14 +5,15 @@ from discord.ext import commands
 
 class EventsCog(commands.Cog):
     """EventsCog"""
-"""
+
+    """
     @commands.command(name='me')
     @commands.is_owner()
     async def only_me(self, ctx):
         '''Command which only responds to the owner of the bot.'''
 
         await ctx.send(f'Hello {ctx.author.mention}. This command can only be used by you!!')
-"""
+    """
 
     @commands.Cog.listener()
     async def on_member_ban(self, guild, user):
@@ -20,7 +21,6 @@ class EventsCog(commands.Cog):
         For more info:
         http://discordpy.readthedocs.io/en/rewrite/api.html#discord.on_member_ban
         """
-
         print(f'{user} was banned from {guild.name}-{guild.id}')
 
 

@@ -33,8 +33,8 @@ class CommandsCog(commands.Cog):
         """A simple command which repeats our input"""
         await ctx.send(our_input)
 
-    @commands.command(name='embedexample', aliases=['embedexample'])
-    async def embed(self, ctx):
+    @commands.command(name='embedstuff', aliases=['embedstuffy'])
+    async def embed_stuff(self, ctx):
         embed = discord.Embed(title='**EMBED EXAMPLE**',description="Here's some stuff...",color=discord.Color.green())
 
         embed.add_field(name='Field1', value='val1')

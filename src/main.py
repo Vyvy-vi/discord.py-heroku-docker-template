@@ -1,9 +1,8 @@
 import discord
 import os
 from discord.ext import commands, tasks
-from config import TOKEN, PREFIX
 from itertools import cycle
-import pymongo
+from pymongo import MongoClient
 from utils import get_environment_variable
 
 TOKEN = get_environment_variable("DISCORD_BOT_TOKEN")
@@ -12,7 +11,7 @@ PREFIX = '.'
 
 MONGO_CONNECTION_STRING = get_environment_variable("MONGO_CONNECTION_STRING")
 DB_CLIENT = MongoClient(MONGO_CONNECTION_STRING)
-db = DB_CLIENT.get_database('')
+db = DB_CLIENT.get_database('users_db')
 
 intents = discord.Intents(messages= True, guilds= True)
 bot = commands.Bot(command_prefix = PREFIX, intents=intents)
@@ -56,7 +55,7 @@ if __name__ == '__main__':
 
 
 # error_handling
-@client.event
+@bot.event
 async def on_command_error(ctx, error):
     # TODO- Error Handling
     if isinstance(error, commands.CommandNotFound):
